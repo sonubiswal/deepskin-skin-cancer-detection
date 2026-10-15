@@ -1,0 +1,3 @@
+## Model weights
+Not included (254 MB). Retrain with `python train_densenet.py`.
+Best DenseNet121: >75% accuracy on HAM10000.
