@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.png" width="100%" alt="DeepSkin Banner">
+<img src="assets/banner.svg" width="100%" alt="DeepSkin Banner">
 
 # DeepSkin
 
@@ -77,7 +77,7 @@ All models were evaluated on the same HAM10000 test split.
 
 ## Pipeline
 
-<img src="https://raw.githubusercontent.com/sonubiswal/deepskin-skin-cancer-detection/main/assets/inference.svg" alt="How DeepSkin reads a lesion" width="100%">
+<img src="assets/inference.svg" alt="How DeepSkin reads a lesion" width="100%">
 
 *The class confidences shown are illustrative, not real model output.*
 
