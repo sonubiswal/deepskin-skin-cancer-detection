@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/sonubiswal/deepskin-skin-cancer-detection/main/assets/banner.svg" alt="DeepSkin banner" width="100%">
+<img src="assets/banner.png" width="100%" alt="DeepSkin Banner">
 
 # DeepSkin
 
@@ -31,7 +31,7 @@ DeepSkin is an end-to-end deep learning pipeline that classifies dermoscopic ima
 
 The project rests on three ideas:
 
-- **A fair benchmark.** A custom CNN baseline is compared with three ImageNet-pretrained architectures (MobileNetV2, DenseNet121, EfficientNet) under identical preprocessing.
+- **A fair benchmark.** A custom CNN baseline is compared with two ImageNet-pretrained architectures (MobileNetV2, DenseNet121) under identical preprocessing.
 - **A reasoned selection.** The final model balances accuracy, inference speed, and model size — not accuracy alone.
 - **A working demo.** A Streamlit app turns an uploaded image into per-class confidence scores.
 
@@ -41,16 +41,21 @@ The project rests on three ideas:
 
 All models were evaluated on the same HAM10000 test split.
 
-<img src="https://raw.githubusercontent.com/sonubiswal/deepskin-skin-cancer-detection/main/assets/results.svg" alt="Test accuracy by model" width="100%">
+| Model | Architecture idea | Accuracy | Training Time | Takeaway |
+|:--|:--|:--:|:--:|:--|
+| Custom CNN | 4 conv blocks + dense head | **75.3%** | 431.6 min | Strong baseline, but slow |
+| MobileNetV2 | Depthwise separable convolutions | **76.3%** | **31.6 min** | **Fastest training (13x faster)** |
+| **DenseNet121** | Dense connections | **76.6%** | 169.1 min | **Selected — highest accuracy** |
 
-| Model | Architecture idea | Accuracy | Takeaway |
-|:--|:--|:--:|:--|
-| Custom CNN | 4 conv blocks + dense head | ~68% | Baseline |
-| MobileNetV2 | Depthwise separable convolutions | ~73% | Fastest inference |
-| EfficientNet | Compound scaling | ~74% | Best efficiency/accuracy trade-off |
-| **DenseNet121** | Dense connections | **>75%** | **Selected — highest accuracy** |
+> **Insight:** While DenseNet121 achieved the best accuracy (76.6%), MobileNetV2 trained in just 31.6 minutes (compared to 431.6 minutes for the Custom CNN), making it the ideal choice for resource-constrained edge devices.
 
 **DenseNet121** is the selected model: the highest accuracy on the seven-class task, paired with a sound balance of model size and inference speed.
+
+### Training Progress
+
+| DenseNet121 | MobileNetV2 |
+|:--:|:--:|
+| ![DenseNet121 Training](assets/densenet_graph.png) | ![MobileNetV2 Training](assets/mobilenet_graph.png) |
 
 ---
 
@@ -78,7 +83,7 @@ All models were evaluated on the same HAM10000 test split.
 
 **1 · Data preprocessing** — 10,015 dermoscopic images resized to each model's input size; stratified splits that preserve class balance; augmentation with rotation, flips, zoom, brightness, and shear.
 
-**2 · Model training** — a custom CNN baseline alongside transfer learning from ImageNet weights for MobileNetV2, DenseNet121, and EfficientNet; class weights for imbalance; early stopping and learning-rate scheduling.
+**2 · Model training** — a custom CNN baseline alongside transfer learning from ImageNet weights for MobileNetV2 and DenseNet121; class weights for imbalance; early stopping and learning-rate scheduling.
 
 **3 · Evaluation and selection** — per-class precision, recall, F1, and ROC-AUC; confusion-matrix analysis; automated selection weighing accuracy, speed, and size; error analysis on the weakest classes.
 
@@ -99,7 +104,6 @@ pip install -r requirements.txt
 # 3. Train a model (pick one)
 python train_densenet.py
 python train_cnn.py
-python train_efficientnet.py
 
 # 4. Launch the web demo
 streamlit run app.py
