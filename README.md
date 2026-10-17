@@ -61,15 +61,52 @@ All models were evaluated on the same HAM10000 test split.
 
 ## The seven lesion classes
 
-| Code | Lesion | Category |
-|:--:|:--|:--|
-| `akiec` | Actinic keratoses | 🟡 Pre-cancerous |
-| `bcc` | Basal cell carcinoma | 🔴 Malignant |
-| `bkl` | Benign keratosis | 🟢 Benign |
-| `df` | Dermatofibroma | 🟢 Benign |
-| `mel` | Melanoma | 🔴 Malignant |
-| `nv` | Melanocytic nevi | 🟢 Benign |
-| `vasc` | Vascular lesions | 🟢 Benign |
+<table width="100%">
+  <thead>
+    <tr>
+      <th align="center">Code</th>
+      <th align="left">Lesion</th>
+      <th align="left">Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><code>akiec</code></td>
+      <td>Actinic keratoses</td>
+      <td>🟡 Pre-cancerous</td>
+    </tr>
+    <tr>
+      <td align="center"><code>bcc</code></td>
+      <td>Basal cell carcinoma</td>
+      <td>🔴 Malignant</td>
+    </tr>
+    <tr>
+      <td align="center"><code>bkl</code></td>
+      <td>Benign keratosis</td>
+      <td>🟢 Benign</td>
+    </tr>
+    <tr>
+      <td align="center"><code>df</code></td>
+      <td>Dermatofibroma</td>
+      <td>🟢 Benign</td>
+    </tr>
+    <tr>
+      <td align="center"><code>mel</code></td>
+      <td>Melanoma</td>
+      <td>🔴 Malignant</td>
+    </tr>
+    <tr>
+      <td align="center"><code>nv</code></td>
+      <td>Melanocytic nevi</td>
+      <td>🟢 Benign</td>
+    </tr>
+    <tr>
+      <td align="center"><code>vasc</code></td>
+      <td>Vascular lesions</td>
+      <td>🟢 Benign</td>
+    </tr>
+  </tbody>
+</table>
 
 📊 **The dataset is heavily imbalanced.** Melanocytic nevi (`nv`) account for roughly 67% of all samples. Stratified splits keep that distribution consistent across train, validation, and test, while class weights compensate during training.
 
