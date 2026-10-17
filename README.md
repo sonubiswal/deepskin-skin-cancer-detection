@@ -61,19 +61,24 @@ All models were evaluated on the same HAM10000 test split.
 
 ## The seven lesion classes
 
-<table width="100%">
+<table>
+  <colgroup>
+    <col width="15%">
+    <col width="45%">
+    <col width="40%">
+  </colgroup>
   <thead>
     <tr>
-      <th width="15%" align="center">Code</th>
-      <th width="45%" align="left">Lesion</th>
-      <th width="40%" align="left">Category</th>
+      <th align="center">Code</th>
+      <th align="left">Lesion</th>
+      <th align="left">Category</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td align="center"><code>akiec</code></td>
       <td>Actinic keratoses</td>
-      <td>🟡 Pre-cancerous</td>
+      <td>🟡 Pre&#8209;cancerous</td>
     </tr>
     <tr>
       <td align="center"><code>bcc</code></td>
