@@ -61,7 +61,7 @@ All models were evaluated on the same HAM10000 test split.
 
 ## The seven lesion classes
 
-<table width="100%">
+<table style="display: table; width: 100%;">
   <thead>
     <tr>
       <th align="center">Code</th>
